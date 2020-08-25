@@ -14,7 +14,7 @@ const returnPromise = () => {
     return new Promise((resolve) => resolve());
 };
 
-// 2 Create a function that returns a promise which retutrns 10 if it resolves succesfully
+// 2 Create a function that returns a promise which returns 10 if it resolves succesfully
 // Example:
 // returnTen() resolves to 10
 
@@ -22,7 +22,7 @@ const returnTen = () => {
     return new Promise((resolve) => resolve(10))
 };
 
-// 3 Create a function that returns a promise which retutrns "An error occurred" if it rejects
+// 3 Create a function that returns a promise which returns "An error occurred" if it rejects
 // Example:
 // anError() rejects to "An error occurred"
 
@@ -30,7 +30,7 @@ const anError = () => {
     return new Promise((resolve, reject) => reject("An error occurred"));
 }
 
-// 4 Create a function that returns a promise which resovles to "happy" if the parameter is greater than 
+// 4 Create a function that returns a promise which resolves to "happy" if the parameter is greater than 
 // or equal to 1 and rejects to "sad" if the value is less than 1
 // Example:
 // happySad(1) resolves to "happy"
@@ -41,7 +41,7 @@ const happySad = (num) => new Promise((happy, sad) => {
     happy("happy")
 });
 
-// 5 Create a function that returns a promise which resovles to a function that returns "My name is <input name>" 
+// 5 Create a function that returns a promise which resolves to a function that returns "My name is <input name>" 
 // Example:
 // myNameIs("Bob") resolves to a function that returns "My name is Bob" 
 
