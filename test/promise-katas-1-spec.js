@@ -69,6 +69,6 @@ describe('myNameIs', () => {
                 expect(value(name)).to.equal("My name is Romy");
                 done();
             })
-            .catch(() => done(new Error('The promise is expected to resolve with a function that returne "My name is Romy"!')));
+            .catch(() => done(new Error('The promise is expected to resolve with a function that returns "My name is Romy"!')));
     })
 });

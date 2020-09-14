@@ -43,7 +43,7 @@ const happySad = (num) => new Promise((happy, sad) => {
 
 // 5 Create a function that returns a promise which resolves to a function that returns "My name is <input name>" 
 // Example:
-// myNameIs("Bob") resolves to a function that returns "My name is Bob" 
+// myNameIs() resolves to a function that takes one argument, name, and returns "My name is name" Eg name => `Me name is ${name}`
 
 const myNameIs = () => new Promise((resolve) => {
     const nameFunc = (name) => `My name is ${name}`
