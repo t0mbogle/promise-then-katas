@@ -4,7 +4,7 @@ DO NOT change this file
 
 */
 
-const getData = (url, requestBody) => {
+const fetch = (url, requestBody) => {
     switch (url) {
         case "food":
             return new Promise(resolve => resolve({ data: "Cheese" }));
@@ -35,4 +35,4 @@ const getData = (url, requestBody) => {
     }
 }
 
-module.exports = { getData };
+module.exports = { fetch };

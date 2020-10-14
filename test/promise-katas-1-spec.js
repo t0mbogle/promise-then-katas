@@ -3,8 +3,14 @@
 const {
     returnPromise,
     returnTen,
+    returnString,
+    returnBob,
+    returnList,
     anError,
+    theNumberOfTheBeast,
+    internalServerError,
     happySad,
+    amIYourFather,
     myNameIs
 } = require("../src/promise-katas-1");
 const { expect } = require("chai");

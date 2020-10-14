@@ -1,11 +1,21 @@
-const { getData } = require("./fakeApi");
+const { fetch } = require("./fakeApi");
 /* 
 
 DO NOT change the import or names of the functions in this file. 
 
 However, you will have to amend the body of the functions themselves in order to make the tests pass. 
 
-You can look at the fakeApi to see how the data is returned
+You can look at the fakeApi.js file to see the shape of the data that is returned from our fakeApi
+
+We have imitated the fetch module for these katas. The fetch function takes two parameters, url and requestBody. 
+
+For the first 3 exercises you will only need to provide the first parameter, url. For the last exercise you will
+need to use the second parameter, requestBody.
+
+An example of using the fetch function:
+
+fetch("food")
+fetch("joke", "question")
 
 */
 
@@ -39,6 +49,10 @@ const dog = () => {
 //     question: "Why did the scarecrow win the Nobel Prize?",
 //     answer: "Because he was out-standing in his field."
 // } of type Object
+// You will have to make more than one request to our fakeApi to get all the data you need. 
+// Be aware of nesting your calls (try to avoid callback hell). Take a look at Promise.all on MDN
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+//
 
 const joke = () => Promise.all([
     getData("jokes", "question"),
