@@ -20,7 +20,7 @@ describe('returnPromise', () => {
         returnPromise()
             .then(() => done())
             .catch(() => done(new Error('The promise is expected to resolve')));
-    })
+    });
 });
 
 describe('returnTen', () => {
@@ -31,9 +31,40 @@ describe('returnTen', () => {
                 done();
             })
             .catch(() => done(new Error('The promise is expected to resolve with 10!')));
+    });
+});
 
-    })
+describe('returnString', () => {
+    it("returns a promise that resolves to 'string'", (done) => {
+        returnString()
+            .then(value => {
+                expect(value).to.equal('string');
+                done();
+            })
+            .catch(() => done(new Error("The promise is expected to resolve with 'string'!")));
+    });
+});
 
+describe('returnBob', () => {
+    it("returns a promise that resolves to { name: 'Bob' }", (done) => {
+        returnBob()
+            .then(value => {
+                expect(value).to.deep.equal({ name: 'Bob' });
+                done();
+            })
+            .catch(() => done(new Error("The promise is expected to resolve with { name: 'Bob' }!")));
+    });
+});
+
+describe('returnList', () => {
+    it("returns a promise that resolves to ['eggs', 'apples', 'milk', 'bread']", (done) => {
+        returnList()
+            .then(value => {
+                expect(value).to.deep.equal(['eggs', 'apples', 'milk', 'bread']);
+                done();
+            })
+            .catch(() => done(new Error("The promise is expected to resolve with ['eggs', 'apples', 'milk', 'bread']!")));
+    });
 });
 
 describe('anError', () => {
@@ -46,10 +77,29 @@ describe('anError', () => {
     })
 });
 
+describe('theNumberOfTheBeast', () => {
+    it('returns a promise that returns 666 when it rejects', (done) => {
+        theNumberOfTheBeast()
+            .catch(value => {
+                expect(value).to.equal(666);
+                done();
+            });
+    })
+});
+
+describe('internalServerError', () => {
+    it('returns a promise that returns { error: 500 } when it rejects', (done) => {
+        internalServerError()
+            .catch(value => {
+                expect(value).to.deep.equal({ error: 500 });
+                done();
+            });
+    })
+});
+
 describe('happySad', () => {
     it('returns a promise that returns "happy" when x > 1', (done) => {
-        const x = 2;
-        happySad(x)
+        happySad(2)
             .then(value => {
                 expect(value).to.equal("happy");
                 done();
@@ -57,10 +107,34 @@ describe('happySad', () => {
             .catch(() => done(new Error('The promise is expected to resolve with happy!')));
     })
     it('returns a promise that returns "sad" when x < 1', (done) => {
-        const x = 0;
-        happySad(x)
+        happySad(0)
             .catch(value => {
                 expect(value).to.equal("sad");
+                done();
+            });
+    })
+});
+
+describe('amIYourFather', () => {
+    it('returns a promise that returns "Yes. Luke, I am your father." when the passed parameter === "Luke"', (done) => {
+        amIYourFather("Luke")
+            .then(value => {
+                expect(value).to.equal("Yes. Luke, I am your father.");
+                done();
+            })
+            .catch(() => done(new Error('The promise is expected to resolve with "Yes. Luke, I am your father."!')));
+    })
+    it('returns a promise that returns "Not your dad." when the passed parameter !== "Luke"', (done) => {
+        amIYourFather("something else")
+            .catch(value => {
+                expect(value).to.equal("Not your dad.");
+                done();
+            });
+    })
+    it('returns a promise that returns "Not your dad." when the passed parameter !== "Luke"', (done) => {
+        amIYourFather(0)
+            .catch(value => {
+                expect(value).to.equal("Not your dad.");
                 done();
             });
     })
