@@ -39,7 +39,7 @@ const cat = async () => {
 // the naughtiest dog - expected return value {name: "Mutley", naughty: 10} of type Object
 
 const dog = async () => {
-    const { data } = await fetch("dogs")
+    const { data } = await fetch("dogs");
     return data.dogs.reduce((acc, val) => {
         if (acc.naughty > val.naughty) return acc;
         return val;
@@ -52,7 +52,7 @@ const dog = async () => {
 const joke = async () => {
     const { joke } = await fetch("jokes", "question");
     const { answer } = await fetch("jokes", "answer");
-    return { question: joke, answer: answer };
+    return { question: joke, answer };
 };
 
 module.exports = {
