@@ -115,9 +115,9 @@ const amIYourFather = (name) => new Promise((resolve, reject) => {
     resolve("Yes. Luke, I am your father.")
 });
 
-// 11 Create a function that returns a promise which resolves to a function that returns "My name is <input name>" 
+// 11 Create a function that returns a promise. The promise should resolve to a new function that returns "My name is <input name>" 
 // Example:
-// myNameIs() resolves to a function that takes one argument, name, and returns "My name is name" Eg name => `Me name is ${name}`
+// A call to myNameIs() resolves to a new function that takes one argument, name, and returns "My name is name" Eg (name) => `My name is ${name}`
 
 const myNameIs = () => new Promise((resolve) => {
     const nameFunc = (name) => `My name is ${name}`
