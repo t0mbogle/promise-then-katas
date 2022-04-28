@@ -33,37 +33,61 @@ Remember, a Promise can only resolve successfully, or reject when it fails to re
 // when we call returnPromise like 'returnPromise()' we expect our function to use the 
 // 'resolve' Promise callback function in order to resolve successfully
 
-const returnPromise = () => { };
+const returnPromise = () => { 
+    return new Promise((res) => {
+        res();
+    });
+}
 
 // 2 Create a function that returns a promise which returns 10 if it resolves succesfully
 // Example:
 // returnTen() resolves to the value 10
 
-const returnTen = () => { };
+const returnTen = () => { 
+    return new Promise((res) => {
+        res(10);
+    });
+};
 
 // 3 Create a function that returns a promise which returns 'string' if it resolves succesfully
 // Example:
 // returnString() resolves to the value 'string'
 
-const returnString = () => { };
+const returnString = () => {
+    return new Promise((res) => {
+        res('string');
+    });
+};
 
 // 4 Create a function that returns a promise which returns an object with a key of name and value of 'Bob' if it resolves succesfully
 // Example:
 // returnBob() resolves to the value { name: 'Bob' }
 
-const returnBob = () => { };
+const returnBob = () => {
+    return new Promise((res) => {
+        res({ name: 'Bob' });
+    });
+};
 
 // 5 Create a function that returns a promise which returns an array with 4 strings of 'eggs', 'apples', 'milk' and 'bread' if it resolves succesfully
 // Example:
 // returnList() resolves to the value ['eggs', 'apples', 'milk', 'bread']
 
-const returnList = () => { };
+const returnList = () => {
+    return new Promise((res) => {
+        res(['eggs', 'apples', 'milk', 'bread']);
+    });
+};
 
 // 6 Create a function that returns a promise which returns "An error occurred" if it rejects
 // Example:
 // anError() rejects to "An error occurred"
 
-const anError = () => { };
+const anError = () => {
+    return new Promise((res, rej) => {
+        rej("An error occurred");
+    });
+};
 
 // 7 Create a function that returns a promise which returns 666 if it rejects
 // Example:
