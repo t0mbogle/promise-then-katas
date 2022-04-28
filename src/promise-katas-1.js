@@ -93,13 +93,21 @@ const anError = () => {
 // Example:
 // theNumberOfTheBeast() rejects to the value 666
 
-const theNumberOfTheBeast = () => { };
+const theNumberOfTheBeast = () => {
+    return new Promise((res, rej) => {
+        rej(666);
+    });
+};
 
 // 8 Create a function that returns a promise which returns an object with a key of error and value of 500 if it rejects
 // Example:
 // internalServerError() rejects to { error: 500 }
 
-const internalServerError = () => { };
+const internalServerError = () => {
+    return new Promise((res, rej) => {
+        rej({ error: 500 });
+    });
+};
 
 // 9 Create a function that returns a promise which resolves to "happy" if the parameter is greater than 
 // or equal to 1 and rejects to "sad" if the value is less than 1
@@ -107,7 +115,15 @@ const internalServerError = () => { };
 // happySad(1) resolves to "happy"
 // happySad(0) rejects to "sad"
 
-const happySad = () => { };
+const happySad = (x) => {
+    return new Promise((res, rej) => {
+        if (x >= 1) {
+            res("happy");
+        } else {
+            rej("sad");
+        }
+    });
+};
 
 // 10 Create a function that returns a promise which resolves to "Yes. Luke, I am your father." if the 
 // parameter is "Luke" and rejects to "Not your dad." if the value is anything else
@@ -115,7 +131,15 @@ const happySad = () => { };
 // amIYourFather() resolves to "Yes. Luke, I am your father."
 // amIYourFather() rejects to "Not your dad."
 
-const amIYourFather = () => { };
+const amIYourFather = (value) => {
+    return new Promise((res, rej) => {
+        if (value === "Luke") {
+            res("Yes. Luke, I am your father.");
+        } else {
+            rej("Not your dad.");
+        }
+    });
+};
 
 // 11 Create a function that returns a promise. The promise should resolve to a new function that returns "My name is <input name>" 
 // Example:
