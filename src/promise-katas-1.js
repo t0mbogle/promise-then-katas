@@ -145,7 +145,11 @@ const amIYourFather = (value) => {
 // Example:
 // A call to myNameIs() resolves to a new function that takes one argument, name, and returns "My name is name" Eg (name) => `My name is ${name}`
 
-const myNameIs = () => { };
+const myNameIs = () => {
+    return new Promise((res, rej,) => {
+        res((name) => `My name is ${name}`);
+    });
+};
 
 
 module.exports = {
