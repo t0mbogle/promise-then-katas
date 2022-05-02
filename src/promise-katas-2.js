@@ -57,7 +57,17 @@ const dog = () =>
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
 //
 
-const joke = (url, requestBody) => {};
+const joke = () => {
+    const joke = fetch('jokes', 'question')
+    const answer = fetch('jokes')
+
+    return Promise.all([joke, answer]).then(values => {
+        return { question: values[0].joke, answer: values[1].answer };
+    });
+};
+
+// 'values' is the same as resolve from a .then() promise, as it's the only parameter.
+// When you call 'values' (or whatever you decide to name this parameter) you are looking through this object from the fakeApi.js file.
 
 module.exports = {
     food,
