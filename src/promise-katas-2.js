@@ -39,7 +39,13 @@ const cat = () => {
 // 3 Create a function that uses the fetch function to make a request to the "dogs" URL and returns
 // the naughtiest dog - expected return value {name: "Mutley", naughty: 10} of type Object
 
-const dog = () => {};
+const dog = () => 
+    fetch("dogs").then(({ data }) => data.dogs.reduce((dogOne, dogTwo) => { 
+        return dogOne.naughty > dogTwo.naughty ? dogOne : dogTwo;
+    }));
+// Reduce comapres previous and current so this compares first and second dog in the array by naughty value, 
+// then compares second and third dog in array by naughty value and returns the greatest.
+
 
 // 4 Create a function that uses the fetch function to make requests to the "jokes" URL and returns
 // a joke object with the key of question and answer - expected return { 
